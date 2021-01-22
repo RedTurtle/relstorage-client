@@ -15,7 +15,7 @@ RUN useradd --system -m -d /relstorage -U -u 500 relstorage && \
 WORKDIR /relstorage
 USER relstorage
 
-COPY --chown=relstorage to_relstorage.czml from_relstorage.zcml ./
+COPY --chown=relstorage to_relstorage.zcml from_relstorage.zcml ./
 
 CMD [ "/bin/bash" ]
 
