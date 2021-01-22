@@ -1,0 +1,12 @@
+<filestorage source>
+  path /relstorage/db/filestorage/Data.fs
+  blob-dir /relstorage/db/blobstorage
+</filestorage>
+
+<relstorage destination>
+  blob-dir /data/blobstorage
+  <postgresql>
+    dsn host='postgresql' user='zope' password='F!Zope' dbname='CHANGEME'
+  </postgresql>
+</relstorage>
+
