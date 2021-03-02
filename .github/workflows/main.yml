@@ -5,7 +5,7 @@ name: Docker build for latest master version
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main ]
+    branches: [ main, pgsql-12 ]
   #pull_request:
     #branches: [ main ]
 
@@ -23,6 +23,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
 
       - name: Set up Docker Buildx
         id: buildx
@@ -48,7 +53,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           # List of tags
-          tags: redturtletech/relstorage-client:main
+          tags: redturtletech/relstorage-client:${{ steps.extract_branch.outputs.branch }}
           # Always attempt to pull a newer version of the image
           pull: true
           # Push is a shorthand for --output=type=registry
