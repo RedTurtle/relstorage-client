@@ -5,7 +5,7 @@ name: Docker build for latest master version
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main, pgsql-12 ]
+    branches: [ main, pgsql-12, pgsql-13 ]
   #pull_request:
     #branches: [ main ]
 
