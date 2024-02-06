@@ -4,7 +4,7 @@ ENV RELSTORAGE_VERSION="3.4.0"
 
 RUN useradd --system -m -d /relstorage -U -u 500 relstorage && \
     buildDeps="gcc libc6-dev libpq-dev" && \
-    runDeps="nano screen postgresql-client-13" && \
+    runDeps="nano screen postgresql-client-15" && \
     apt-get update && \
     apt-get install -y --no-install-recommends $buildDeps && \
     pip install RelStorage[postgresql]==$RELSTORAGE_VERSION && \
